@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .c .s,
+      .c .s::before {
+        background-color: #fff;
+      }
+      .c .s,
+      .c .w {
+        border-radius: 50%;
+      }
+      .c .s,
+      .c .w .number {
+        position: absolute;
+        cursor: pointer;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        flex-direction: column;
+        gap: 30px;
+        background-color: #f4f4f9;
+      }
+      h1 {
+        font-size: 1.5rem;
+        color: #34495e;
+        font-family: "Arial", sans-serif;
+      }
+      .c,
+      .c .s {
+        justify-content: center;
+        display: flex;
+        transition: 1s ease-out;
+        transform: scale(1);
+      }
+      .c {
+        position: relative;
+        width: 250px;
+        height: 250px;
+        align-items: center;
+      }
+      .c .s {
+        width: 60px;
+        height: 60px;
+        z-index: 10;
+        align-items: center;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: #2c3e50;
+      }
+      .c .s::before {
+        content: "";
+        position: absolute;
+        top: -28px;
+        width: 20px;
+        height: 30px;
+        clip-path: polygon(50% 0, 15% 100%, 85% 100%);
+      }
+      .c .w {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: transform 3s ease-in-out;
+        background-color: #34495e;
+        overflow: hidden;
+        box-shadow: 0 0 0 5px #34495e, 0 0 0 15px #fff, 0 0 0 18px #2c3e50;
+      }
+      .c .w .number {
+        width: 49%;
+        height: 50%;
+        background: var(--clr);
+        transform-origin: bottom right;
+        transform: rotate(calc(51.5deg * var(--i)));
+        clip-path: polygon(0 0, 65% 0, 100% 100%, 0 65%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        user-select: none;
+        font-family: "Arial", sans-serif;
+      }
+      .c .w .number span {
+        position: relative;
+        transform: rotate(-45deg);
+        font-size: 14px;
+        font-weight: 500;
+        text-shadow: 2px 4px 2px rgba(0, 0, 0, 0.2);
+      }
+      .c .w .number .giftcode {
+        width: 100%;
+        height: 100%;
+        clip-path: polygon(0 0, 65% 0, 100% 100%, 0 65%);
+        font-size: 18px;
+        position: absolute;
+        z-index: 5;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: rotate(-45deg);
+        text-align: center;
+        font-family: "Arial", sans-serif;
+      }
+      .c .w .number .giftcode div {
+        display: flex;
+        gap: 5px;
+        flex-direction: row-reverse;
+      }
+      .c .w .number .giftcode span {
+        transform: rotate(0deg);
+      }
+      .copy {
+        font-family: "Arial", sans-serif;
+        position: relative;
+        border-radius: 30px;
+        font-size: 30px;
+        width: 250px;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        transition: 0.7s ease-in-out;
+        text-shadow: 3px 5px 2px rgba(0, 0, 0, 0.15);
+        padding: 10px;
+        display: none;
+        background-image: url("https://img.freepik.com/free-vector/confetti-concept-design-template-holiday-happy-day-black-background-celebration-vector-illustration_1142-9811.jpg?t=st=1736433654~exp=1736437254~hmac=24eb907aa7cb4cd9e8735cc39cd10299e64b312d9713b7ca9a1395d1c1436b25&w=1060");
+        background-size: cover;
+        gap: 60px;
+        justify-content: flex-end;
+        padding-bottom: 30px;
+      }
+      .copy p {
+        font-size: 24px;
+        text-align: center;
+        font-weight: bold;
+        color: #f39c12;
+      }
+      .copy article {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+      .copy span {
+        font-size: 12px;
+        color: #eee;
+        cursor: pointer;
+        transform: scale(1);
+        transition: 0.7s ease-in-out;
+      }
+      .copy p span span {
+        display: inline-block;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Spin the Wheel and Win!</h1>
+    <div class="c">
+      <div class="s">
+        <img
+          src="https://cdn.brandfetch.io/idG3736TmN/w/400/h/400/theme/dark/icon.jpeg?c=1bx1739111042270id64Mup7acaHsbVm-A&t=1703004660393"
+          width="50"
+          style="max-width: 50px"
+          alt=""
+        />
+      </div>
+      <div class="w"></div>
+    </div>
+    <div class="copy">
+      <p style="display: flex; flex-direction: column">
+        Congratulations! You won a discount of
+        <span
+          style="
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            gap: 10px;
+          "
+        >
+          <span id="discount">10</span>
+          <span>USD</span>
+        </span>
+      </p>
+      <article>
+        <div>WOW</div>
+        <span class="btn">
+          <img
+            src="https://hosting.photobucket.com/images/i/Digi-Tell/Untitled_design_(29)_5kcH8m94vtXtUjhtj7TpUG.png"
+            style="width: 20px"
+          />
+        </span>
+      </article>
+    </div>
+
+    <script>
+      var spined = true;
+      var data = [
+        {
+          id: 1,
+          label: "Discount<br> <div><span>5</span> <span>USD</span></div>",
+          color: "#ff6f61",
+          dis: "5",
+          giftCode: "WIN5",
+          position: 2876,
+        },
+        {
+          id: 2,
+          label: "Discount<br> <div><span>7</span> <span>USD</span></div>",
+          color: "#f39c12",
+          dis: "7",
+          giftCode: "WIN7",
+          position: 3184,
+        },
+        {
+          id: 3,
+          label: "Discount<br> <div><span>8</span> <span>USD</span></div>",
+          color: "#e74c3c",
+          dis: "8",
+          giftCode: "WIN8",
+          position: 3130,
+        },
+        {
+          id: 4,
+          label: "Discount<br> <div><span>10</span> <span>USD</span></div>",
+          color: "#16a085",
+          dis: "10",
+          giftCode: "WIN10",
+          position: 3078,
+        },
+        {
+          id: 5,
+          label: "Discount<br> <div><span>13</span> <span>USD</span></div>",
+          color: "#2ecc71",
+          dis: "13",
+          giftCode: "WIN13",
+          position: 3024,
+        },
+        {
+          id: 6,
+          label: "Discount<br> <div><span>15</span> <span>USD</span></div>",
+          color: "#9b59b6",
+          dis: "15",
+          giftCode: "WIN15",
+          position: 2975,
+        },
+        {
+          id: 7,
+          label: "Discount<br> <div><span>20</span> <span>USD</span></div>",
+          color: "#3498db",
+          dis: "20",
+          giftCode: "WIN20",
+          position: 2925,
+        },
+      ];
+      let c = document.querySelector(".c");
+      let w = document.querySelector(".w");
+      let s = document.querySelector(".s");
+      let copy = document.querySelector(".copy");
+      let copyText = document.querySelector(".copy div");
+      let copybtn = document.querySelector(".copy .btn");
+      let discount = document.querySelector("#discount");
+      let value = Math.ceil(Math.random() * (6 - 0) + 0);
+
+      data.map((userData, index) => {
+        var div = document.createElement("div");
+        var span = document.createElement("span");
+        var spanCover = document.createElement("span");
+        div.className = "number";
+        div.setAttribute(
+          "style",
+          `--i: ${index + 1}; --clr: ${userData.color}`
+        );
+        span.innerHTML = userData.giftCode;
+        span.setAttribute("id", userData.id + 10);
+        spanCover.className = "giftcode";
+        spanCover.setAttribute("id", userData.id);
+        spanCover.innerHTML = userData.label;
+        spanCover.style.backgroundColor = userData.color;
+        div.appendChild(span);
+        div.appendChild(spanCover);
+        w.appendChild(div);
+      });
+
+      s.onclick = function () {
+        if (spined) {
+          spined = false;
+          w.style.transform = "rotate(" + data[value].position + "deg)";
+          setTimeout(() => {
+            document.getElementById(`${data[value].id}`).style.display = "none";
+          }, 4000);
+          setTimeout(() => {
+            c.style.transform = "scale(0)";
+          }, 5000);
+          setTimeout(() => {
+            c.style.display = "none";
+            copyText.innerHTML = data[value].giftCode;
+            copy.style.display = "flex";
+            discount.innerHTML = data[value].dis;
+          }, 5500);
+        }
+      };
+
+      copybtn.onclick = function () {
+        const el = document.createElement("textarea");
+        const textToCopy = data[value].giftCode;
+        el.value = textToCopy;
+        el.setAttribute("readonly", "");
+        el.style.position = "absolute";
+        el.style.left = "-9999px";
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand("copy");
+        document.body.removeChild(el);
+      };
+    </script>
+  </body>
+</html>
